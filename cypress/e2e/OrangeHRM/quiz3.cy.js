@@ -16,14 +16,14 @@ describe("Login Tests - OrangeHRM", () => {
   });
 
   it("TC-002: User tidak dapat login dengan akun data invalid", () => {
-    cy.get('[name="username"]').type("InvalidUser");
+    cy.get('[name="username"]').type("admin10111");
     cy.get('[name="password"]').type("WrongPassword");
     cy.get('[type="submit"]').click();
     cy.get(".oxd-alert").should("contain.text", "Invalid credentials");
   });
 
   it("TC-003: User tidak dapat login dengan username salah", () => {
-    cy.get('[name="username"]').type("InvalidUser");
+    cy.get('[name="username"]').type("admin10111");
     cy.get('[name="password"]').type("admin123");
     cy.get('[type="submit"]').click();
     cy.get(".oxd-alert").should("contain.text", "Invalid credentials");
