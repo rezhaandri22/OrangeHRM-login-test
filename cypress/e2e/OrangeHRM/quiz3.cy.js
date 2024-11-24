@@ -9,35 +9,35 @@ describe("Login Tests - OrangeHRM", () => {
 
   it("TC-001: User dapat login menggunakan akun data valid", () => {
     cy.get("h5").should("contain.text", "Login");
-    cy.get('input[name="username"]').type("Admin");
-    cy.get('input[name="password"]').type("admin123");
-    cy.get('button[type="submit"]').click();
+    cy.get('[name="username"]').type("Admin");
+    cy.get('[name="password"]').type("admin123");
+    cy.get('[type="submit"]').click();
     cy.get("h6").should("contain.text", "Dashboard");
   });
 
   it("TC-002: User tidak dapat login dengan akun data invalid", () => {
-    cy.get('input[name="username"]').type("InvalidUser");
-    cy.get('input[name="password"]').type("WrongPassword");
-    cy.get('button[type="submit"]').click();
+    cy.get('[name="username"]').type("InvalidUser");
+    cy.get('[name="password"]').type("WrongPassword");
+    cy.get('[type="submit"]').click();
     cy.get(".oxd-alert").should("contain.text", "Invalid credentials");
   });
 
   it("TC-003: User tidak dapat login dengan username salah", () => {
-    cy.get('input[name="username"]').type("InvalidUser");
-    cy.get('input[name="password"]').type("admin123");
-    cy.get('button[type="submit"]').click();
+    cy.get('[name="username"]').type("InvalidUser");
+    cy.get('[name="password"]').type("admin123");
+    cy.get('[type="submit"]').click();
     cy.get(".oxd-alert").should("contain.text", "Invalid credentials");
   });
 
   it("TC-004: User tidak dapat login dengan password salah", () => {
-    cy.get('input[name="username"]').type("Admin");
-    cy.get('input[name="password"]').type("WrongPassword");
-    cy.get('button[type="submit"]').click();
+    cy.get('[name="username"]').type("Admin");
+    cy.get('[name="password"]').type("WrongPassword");
+    cy.get('[type="submit"]').click();
     cy.get(".oxd-alert").should("contain.text", "Invalid credentials");
   });
 
   it("TC-005: User tidak dapat login dengan kolom username dan password kosong", () => {
-    cy.get('button[type="submit"]').click();
+    cy.get('[type="submit"]').click();
     cy.get(".oxd-input-field-error-message")
       .eq(0)
       .should("contain.text", errorMessage);
