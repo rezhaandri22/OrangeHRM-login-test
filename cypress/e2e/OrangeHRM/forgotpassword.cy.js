@@ -1,4 +1,4 @@
-import ForgotPasswordPage from "../../pom/forgotPassword/forgotpassowrd.cy";
+import ForgotPasswordPage from "../../pom/forgotPassword/forgotpassword.cy";
 
 describe("Forgot Password Tests - OrangeHRM", () => {
   const baseUrl =
